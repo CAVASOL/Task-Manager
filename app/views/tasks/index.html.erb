@@ -1,9 +1,17 @@
 <!-- app/views/tasks/index.html.erb -->
-<h1>Here your tasks:</h1>
+<h1>My Task</h1>
 
-<ul>
-  <% link_to @tasks.title, task_path(task) %>
-    <li><%= task.details %></li>
-    <li><%= task.completed %></li>
-  <% end %>
-</ul>
+<div class="form-check">
+      <% @tasks.each do |task| %>
+          <% if task.completed %>
+            <input class="form-check-input" checked type="checkbox" value="" id="defaultCheck1">
+          <% else %>
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <% end %>
+        <%= link_to task.title, task_psth(params[:id])%>
+      <% end %>
+  </label>
+</div>
+
+
+<%= link_to "Add more task", edit_task_path, class: "btn btn-dark"%>

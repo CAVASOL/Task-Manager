@@ -1,4 +1,16 @@
+<h1> <%= @task.title %> </h1>
 
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<p><%= @task.completed %></p>
+<div class="card">
+  <div class="card-body">
+    <%= @task.details %>
+  </div>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    <p>This task is not completed yet</p>
+  </label>
+</div>
+
+<%= link_to "Back to main", task_path, class: "btn btn-dark"%>

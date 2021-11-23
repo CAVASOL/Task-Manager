@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,500&family=Merriweather:wght@300;700;900&family=Permanent+Marker&display=swap');
+
+body {
+  background-color:chocolate;
+  font-family: 'Permanent Marker', cursive;
+  font-size: x-large;
+  text-align: center;
+  margin: 30px;
+}
+
+.h1 {
+  font-size: 80px;
+}
