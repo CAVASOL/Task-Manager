@@ -1,14 +1,6 @@
 
-<h1> Here is your task: </h1>
+<h1> New task </h1>
 
-<h2><%= @task.title %></h2>
-<p>Details: <%= @task.details %></p>
-<p>Completed: <%= @task.completed %></p>
+<%= render 'form', task: @task %>
 
-<%= link_to "back to Main", index_path, class: "btn btn-dark" %>
-
-
-<%= link_to "Delete #{@task.title}",
-            task_path(@task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+<%= link_to "back to List", tasks_path, class: "btn btn-dark" %>

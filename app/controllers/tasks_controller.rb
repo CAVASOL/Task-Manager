@@ -11,28 +11,26 @@ class TasksController < ApplicationController
   def show; end
 
   def new
-    @task = Task.new(task_params)
+    @task = Task.new
   end
 
   def create
     @task = Task.new(task_params)
     @task.save
 
-    redirect_to task_path(@task)
+    redirect_to tasks_path
   end
 
   def edit; end
 
   def update
-    @task.update(params[:task])
+    @task.update(task_params)
 
     redirect_to task_path(@task)
   end
 
   def destroy
     @task.destroy
-
-    # no need for app/views/restaurants/destroy.html.erb
     redirect_to tasks_path
   end
 

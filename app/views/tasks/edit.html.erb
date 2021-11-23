@@ -1,7 +1,15 @@
 
 <h1>EDIT <%= @task.title%></h1>
 
-<form>
+<%= render 'form', task: @task %>
+
+<hr>
+<%= link_to tasks_path do %>
+  <i class="fa fa-history"></i> Back to list
+<% end %>
+
+
+<%# <form>
   <div class="form-group">
     <label for="formGroupExampleInput">Title</label>
     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
@@ -10,15 +18,15 @@
     <label for="formGroupExampleInput2">Details</label>
     <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
   </div>
-</form>
+</form> %>
 
 
-<div class="form-check">
+<%# <div class="form-check">
   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
   <label class="form-check-label" for="defaultCheck1">
     <p>Completed</p>
   </label>
-</div>
+</div> %>
 
 
-<%= link_to "Back to main", task_path, class: "btn btn-dark"%>
+<%# <%= link_to "Back to list", tasks_path, class: "btn btn-dark"%> %>

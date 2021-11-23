@@ -1,19 +1,31 @@
 <!-- app/views/tasks/index.html.erb -->
 <h1>My Task</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="form-check">
-      <% @tasks.each do |task| %>
-          <% if task.completed %>
-            <input class="form-check-input" checked type="checkbox" value="" id="defaultCheck1">
-          <% else %>
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <% end %>
-        <%= link_to task.title, tasks_path(params[:id])%>
-      <% end %>
-    </div>
-  </div>
-</div>
 
-<%= link_to "Add more task", "#", class: "btn btn-dark"%>
+<ul id="tasks">
+  <% @tasks.each do |task| %>
+    <li>
+      <% if task.completed %>
+        <input class="form-check-input" checked type="checkbox" value="" id="defaultCheck1">
+      <% else %>
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <% end %>
+      <%= link_to task.title, task_path(task.id) %>
+      <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to "Add more task", new_task_path, class: "btn btn-dark" %>
+
+
+
+  <%# <% if task.completed %>
+    <%# <i class="fa fa-check-square-o"></i> %>
+  <%# <% else %>
+    <%# <i class="fa fa-square-o"></i> %>
+  <%# <% end %>

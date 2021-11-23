@@ -1,16 +1,22 @@
+<%= link_to edit_task_path(@task.id), class: 'pull-right btn btn-default' do %>
+  <i class="fa fa-pencil"></i> Edit this task
+<% end %>
+
 <h1> <%= @task.title %> </h1>
 
-<div class="card">
+<div class="card p-2">
   <div class="card-body">
     <%= @task.details %>
   </div>
 </div>
 
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    <p>This task is not completed yet</p>
-  </label>
-</div>
+<% if @task.completed %>
+  <i class="fa fa-check-square-o"></i> This task is completed
+<% else %>
+  <i class="fa fa-square-o"></i> This task is not completed yet
+<% end %>
 
-<%= link_to "Back to main", tasks_path, class: "btn btn-dark"%>
+<hr>
+<%= link_to tasks_path do %>
+  <i class="fa fa-history"></i> Back to list
+<% end %>
